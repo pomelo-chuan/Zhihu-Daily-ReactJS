@@ -1,9 +1,24 @@
 
 export default {
     namespace: 'count',
-    state: 0,
+    state: {
+        num: 0,
+    },
     reducers: {
-        add(count) { return count + 1 },
-        minus(count) { return count - 1 }
+        add(state) {
+            const item = state.num + 1
+            return { num: item }
+        },
+        minus(state) {
+            const item = state.num - 1
+            return { num: item }
+        }
+    },
+    effects: {
+        *addLate({}, { put, call }) {
+            // const result = yield call()
+            yield put({ type: 'add' })
+        },
     }
+
 };
