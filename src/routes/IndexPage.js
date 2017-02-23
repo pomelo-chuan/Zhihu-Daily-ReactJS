@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from '../styles/IndexPage.css';
-import Head from '../components/Head'
-require('basscss/css/basscss.min.css')
+import Head from '../components/Head';
+require('basscss/css/basscss.min.css');
 
 function IndexPage({News, dispatch}) {
   return (
