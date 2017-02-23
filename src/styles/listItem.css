@@ -1,0 +1,6 @@
+.listItem {
+    border-bottom: 2px solid #FAFAFA;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
