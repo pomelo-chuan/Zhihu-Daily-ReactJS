@@ -11,7 +11,7 @@ const app = dva({
 });
 
 app.model(require('./models/count'));
-
+app.model(require('./models/zhihu'))
 // 2. Plugins
 // app.use({});
 
