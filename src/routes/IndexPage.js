@@ -7,7 +7,7 @@ import ListItem from '../components/List/ListItem'
 require('basscss/css/basscss.min.css');
 
 function IndexPage({News, dispatch}) {
-  console.log("首页数据：", News.NewsLatest.data);
+  // console.log("首页数据：", News.NewsLatest.data);
   return (
     <div>
       <Head title={"zhihu"}></Head>
