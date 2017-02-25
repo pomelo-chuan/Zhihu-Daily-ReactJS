@@ -1,13 +1,14 @@
-// import * as types from '../types.js/zhihu-types'
-import axios from 'axios'
-import { queryNewsLatests, queryNewsDetail } from '../services/zhihu-request'
+import { queryNewsLatests, queryNewsDetail, queryNewsMore } from '../services/zhihu-request'
 import pathToRegexp from 'path-to-regexp';
+var moment = require('moment');
 
 export default {
     namespace: 'newslatest',
     state: {
+        NewsRoot: [],
         NewsLatest: {},
-        NewsDatail: {}
+        NewsDatail: {},
+        time: moment()
     },
 
     subscriptions: {
@@ -28,19 +29,26 @@ export default {
         *FetchNewsLatest({}, { call, put }) {
             const data = yield call(queryNewsLatests);
             yield put({ type: 'DoneNewsLatest', data });
-            console.log("第一页列表:", data)
+            console.log("第一页列表:", data);
         },
         *FetchNewsDetail({payload}, {call, put}) {
             const data = yield call(queryNewsDetail, payload);
             yield put({ type: 'DoneNewsDetail', data });
-            console.log("详细信息：", data)
+            console.log("详细信息：", data);
+        },
+        *FetchNewsMore({payload}, {call, put ,select}) {
+            const time = yield select(state => state.newslatest.time);
+            const data = yield call(queryNewsMore, time.format('YYYYMMDD'));
+            yield put({ type: 'DoneNewsMore', data})
+            console.log("下一天信息：", data);
         }
     },
 
     reducers: {
         DoneNewsLatest(state, items) {
             const data = items.data;
-            return { ...state, NewsLatest: data };
+            const NewsRoot = state.NewsRoot.concat(data);
+            return { ...state, NewsLatest: data, NewsRoot };
         },
         DoneNewsDetail(state, items) {
             const data = items.data;
@@ -50,6 +58,12 @@ export default {
             data.data.body = data.data.body.replaceAll('src=\"', 'src=\"http://lovestreet.leanapp.cn/zhihu/resource?url=')
             data.data.body = data.data.body.replaceAll('<div class=\"img-place-holder\"></div>', '')
             return { ...state, NewsDatail: data };
+        },
+        DoneNewsMore(state, items) {
+            const data = items.data;
+            const NewsRoot = state.NewsRoot.concat(data);
+            const time = state.time.subtract(1, "days");
+            return { ...state, NewsRoot, time};
         }
     },
 

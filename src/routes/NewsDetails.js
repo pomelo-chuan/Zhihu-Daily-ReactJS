@@ -1,21 +1,23 @@
 import React from 'react';
 import { connect } from 'dva';
+import Loading from '../components/common/Loading'
 
-
-const NewsDetails = (NewsDetail) => {
+function NewsDetails({NewsDetail, loading}) {
   return (
     <div>
-      <div dangerouslySetInnerHTML={{__html: NewsDetail.NewsDetail.data ? NewsDetail.NewsDetail.data.body : "加载中"}} />
+      <Loading loading={loading} />
+      <div dangerouslySetInnerHTML={{ __html: NewsDetail.data ? NewsDetail.data.body : "" }} />
     </div>
   );
-};
+}
 
 NewsDetails.propTypes = {
 };
 
 function mapStateToProps(state) {
   return {
-    NewsDetail: state.newslatest.NewsDatail
+    NewsDetail: state.newslatest.NewsDatail,
+    loading: state.loading.global,
   }
 }
 

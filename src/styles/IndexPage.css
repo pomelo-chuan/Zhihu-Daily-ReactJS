@@ -12,3 +12,19 @@
     background-color: white;
     outline: none;
 }
+
+.nextPage {
+    /* ===style format=== */
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	outline: none;
+	/* ===color and font=== */
+	background-color: white;
+	color: black;
+	font-size: 0.8rem;
+	border-bottom: 1px solid #efefef;
+	/* ===size and position=== */
+	width: 100%;
+}

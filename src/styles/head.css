@@ -1,5 +1,9 @@
 .ZhihuHead {
     border-bottom: 2px solid #FAFAFA;
-    height: 50vh;
-    line-height: 50vh;
+    height: 10rem;
+    padding-top: 5rem;
+}
+
+.ZhihuHead p:nth-child(2) {
+    color: grey;
 }

@@ -4,9 +4,9 @@ import head from '../styles/head.css';
 
 const Head = (props) => {
   return (
-    <div className={`${head.ZhihuHead} center caps h2`}>
-      <p>{props.title}</p>
-      <p></p>
+    <div className={`${head.ZhihuHead} center caps`}>
+      <p className={`h2`}>Zhihu Daily</p>
+      <p className={`h6`}>bassed on ReactJs</p>
     </div>
   );
 };

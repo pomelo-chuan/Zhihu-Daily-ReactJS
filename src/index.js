@@ -1,25 +1,21 @@
 import dva from 'dva';
 import './index.css';
+import createLoading from 'dva-loading';
 
-// 去除 hashHistory 下的 _k 查询参数
+// 用于去除 hashHistory 下的 _k 查询参数
 import { useRouterHistory } from 'dva/router';
 import { createHashHistory } from 'history';
 
-// 1. Initialize
+
 const app = dva({
   history: useRouterHistory(createHashHistory)({ queryKey: false }),
 });
 
+app.use(createLoading());
+
 app.model(require('./models/count'));
-app.model(require('./models/zhihu'))
-// 2. Plugins
-// app.use({});
+app.model(require('./models/zhihu'));
 
-// 3. Model
-// app.model(require('./models/example'));
-
-// 4. Router
 app.router(require('./router'));
 
-// 5. Start
 app.start('#root');
