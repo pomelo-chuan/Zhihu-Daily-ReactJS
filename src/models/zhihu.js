@@ -26,10 +26,14 @@ export default {
     },
 
     effects: {
-        *FetchNewsLatest({}, { call, put }) {
-            const data = yield call(queryNewsLatests);
-            yield put({ type: 'DoneNewsLatest', data });
-            console.log("第一页列表:", data);
+        *FetchNewsLatest({}, { call, put, select }) {
+            const state = yield select(state => state);
+            // 如果NewsRoot有数据则不进行请求，防止从其他页面切到'/'时，导致数据重复请求的问题
+            if(state.newslatest.NewsRoot.length == 0) {
+                const data = yield call(queryNewsLatests);
+                yield put({ type: 'DoneNewsLatest', data });
+                console.log("第一页列表:", data);
+            }
         },
         *FetchNewsDetail({payload}, {call, put}) {
             const data = yield call(queryNewsDetail, payload);
@@ -46,14 +50,9 @@ export default {
 
     reducers: {
         DoneNewsLatest(state, items) {
-            // 在这里判断一下，如果NewsRoot里有数据就不进行这一步操作了
-            if(state.NewsRoot.length == 0) {
-                const data = items.data;
-            const NewsRoot = state.NewsRoot.concat(data);
-            return { ...state, NewsLatest: data, NewsRoot };
-            } else {
-                return {...state}
-            }
+            const data = items.data;
+                const NewsRoot = state.NewsRoot.concat(data);
+                return { ...state, NewsLatest: data, NewsRoot };
             
         },
         DoneNewsDetail(state, items) {
