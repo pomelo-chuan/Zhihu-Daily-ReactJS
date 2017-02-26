@@ -12,6 +12,8 @@ function IndexPage({News, dispatch, loading}) {
   function getNextPage() {
     dispatch({ type: "newslatest/FetchNewsMore" })
   };
+
+  // 把知乎返回的字符串格式的时间格式化成’2017年05月10日‘这样的格式
   String.prototype.fomateDate = function (value) {
     var middleState = value.split("");
     middleState.splice(4, 0, "年");
@@ -20,6 +22,7 @@ function IndexPage({News, dispatch, loading}) {
     var middleState2 = middleState.toString().replace(/,/g, '')
     return middleState2
   }
+
   return (
     <div>
       <Loading loading={loading} />

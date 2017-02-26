@@ -16,7 +16,7 @@ export default {
             history.listen(({pathname}) => {
                 if (pathname === '/') {
                     dispatch({ type: 'FetchNewsLatest' })
-                };
+                };            
                 const matchDetailId = pathToRegexp('/detail/:id').exec(pathname);
                 if (matchDetailId) {
                     dispatch({ type: 'FetchNewsDetail', payload: matchDetailId[1] })
@@ -46,9 +46,15 @@ export default {
 
     reducers: {
         DoneNewsLatest(state, items) {
-            const data = items.data;
+            // 在这里判断一下，如果NewsRoot里有数据就不进行这一步操作了
+            if(state.NewsRoot.length == 0) {
+                const data = items.data;
             const NewsRoot = state.NewsRoot.concat(data);
             return { ...state, NewsLatest: data, NewsRoot };
+            } else {
+                return {...state}
+            }
+            
         },
         DoneNewsDetail(state, items) {
             const data = items.data;
