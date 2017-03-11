@@ -5,7 +5,7 @@
   width: 40px;
   height: 40px;
   background-color: #333;
-  border-radius: 100%;  
+  border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
@@ -19,7 +19,7 @@
 }
 
 @keyframes sk-scaleout {
-  0% { 
+  0% {
     -webkit-transform: scale(0);
     transform: scale(0);
   } 100% {
@@ -28,3 +28,25 @@
     opacity: 0;
   }
 }
+/*
+.line {
+  width: 100%;
+  height: 5px;
+  background-color: #0E88EB;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: lineTransition 2s ease infinite;
+}
+
+@keyframes lineTransition {
+  0% {
+    background-color: #086DD3;
+  }
+  50% {
+    background-color: white;
+  }
+  100% {
+    background-color: #086DD3;
+  }
+}*/

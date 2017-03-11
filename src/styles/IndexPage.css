@@ -28,3 +28,11 @@
 	/* ===size and position=== */
 	width: 100%;
 }
+
+@media screen and (min-width: 640px) {
+	.root {
+		width: 640px;
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}
+}

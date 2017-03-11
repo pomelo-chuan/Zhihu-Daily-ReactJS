@@ -17,14 +17,14 @@ function IndexPage({News, dispatch, loading}) {
   String.prototype.fomateDate = function (value) {
     var middleState = value.split("");
     middleState.splice(4, 0, "年");
-    middleState.splice(7, 0, "月")
-    middleState.splice(middleState.length, 0, "日")
-    var middleState2 = middleState.toString().replace(/,/g, '')
+    middleState.splice(7, 0, "月");
+    middleState.splice(middleState.length, 0, "日");
+    var middleState2 = middleState.toString().replace(/,/g, '');
     return middleState2
   }
 
   return (
-    <div>
+    <div className={styles.root}>
       <Loading loading={loading} />
       <Head></Head>
       <Title title={"今日热点"}></Title>

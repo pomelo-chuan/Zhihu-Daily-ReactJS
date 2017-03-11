@@ -1,9 +1,27 @@
 .ZhihuHead {
     border-bottom: 2px solid #FAFAFA;
-    height: 10rem;
-    padding-top: 5rem;
+    padding: 2rem;
+    background-color: white;
 }
 
-.ZhihuHead p:nth-child(2) {
-    color: grey;
+.ZhihuHead h1 {
+    color: #4B4C4C;
+    animation: headAnimation 1s ease 1;
+    opacity: 1;
+}
+
+.ZhihuHead p {
+    color: #BBBDBE;
+    animation: headAnimation 1s ease 1;
+}
+
+@keyframes headAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

@@ -3,7 +3,10 @@ import style from '../../styles/Loading.css'
 
 function Loading({ loading }) {
   return (
-    <div className={style.spinner} hidden={!loading}> </div>
+    <div>
+      <div className={style.spinner} hidden={!loading}> </div>
+    </div>
+
   );
 }
 

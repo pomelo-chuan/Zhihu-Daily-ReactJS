@@ -5,8 +5,8 @@ import head from '../styles/head.css';
 const Head = (props) => {
   return (
     <div className={`${head.ZhihuHead} center caps`}>
-      <p className={`h2`}>Zhihu Daily</p>
-      <p className={`h6`}>bassed on ReactJs</p>
+      <h1 className={`h3`}>zhihu daily</h1> 
+      <p className={`h6`}>based on reactjs</p>
     </div>
   );
 };
