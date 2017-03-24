@@ -1,27 +1,48 @@
 .ZhihuHead {
-    border-bottom: 2px solid #FAFAFA;
-    padding: 2rem;
-    background-color: white;
+  padding: 1rem;
+  background-color: white;
 }
 
 .ZhihuHead h1 {
-    color: #4B4C4C;
-    animation: headAnimation 1s ease 1;
-    opacity: 1;
+  color: #4B4C4C;
+  animation: headAnimation 1s ease 1;
+  opacity: 1;
 }
 
 .ZhihuHead p {
-    color: #BBBDBE;
-    animation: headAnimation 1s ease 1;
+  color: #BBBDBE;
+  animation: headAnimation 1s ease 1;
 }
 
 @keyframes headAnimation {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.link {
+  color: grey;
+  font-size: 12px;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 2px solid grey;
+}
+
+/*链接被选中时的样式*/
+.linkActive {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  outline: none;
+  border-bottom: 2px solid black;
+}
+
+.headContainer{
+  padding: 0.5rem;
+  border-bottom: 2px solid #FAFAFA;
 }

@@ -1,15 +1,23 @@
 import React from 'react';
-import { Router, Route } from 'dva/router';
+import {Router, Route, IndexRoute} from 'dva/router';
+import Home from './routes/Home';
 import IndexPage from './routes/IndexPage';
-import App from './routes/App';
 import NewsDetails from './routes/NewsDetails';
+import List from './routes/List'
 
-function RouterConfig({ history }) {
+function RouterConfig({history}) {
   return (
     <Router history={history}>
-      <Route path="/" component={IndexPage} />
-      <Route path="/detail/:id" component={NewsDetails} />
-      <Route path="/count" component={App} />
+
+      <Route path="/detail" component={Home}>
+        <IndexRoute component={IndexPage}/>
+        <Route path="/detail/:id" component={NewsDetails}/>
+      </Route>
+
+      <Route path="/list" component={Home}>
+        <IndexRoute component={List}/>
+      </Route>
+
     </Router>
   );
 }
