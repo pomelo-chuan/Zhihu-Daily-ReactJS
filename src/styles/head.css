@@ -31,15 +31,14 @@
   font-weight: bold;
   outline: none;
   border-bottom: 2px solid grey;
+  transition: all 0.3s ease;
 }
 
 /*链接被选中时的样式*/
 .linkActive {
   color: black;
-  font-size: 12px;
-  font-weight: bold;
-  outline: none;
   border-bottom: 2px solid black;
+  transition: all 0.3s ease;
 }
 
 .headContainer{
