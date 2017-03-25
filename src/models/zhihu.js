@@ -20,7 +20,8 @@ export default {
         ;
         const matchDetailId = pathToRegexp('/detail/:id').exec(pathname);
         if (matchDetailId) {
-          dispatch({type: 'FetchNewsDetail', payload: matchDetailId[1]})
+          dispatch({type: 'FetchNewsDetail', payload: matchDetailId[1]});
+          window.scrollTo(0, 0);
         }
       })
     },

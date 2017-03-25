@@ -13,7 +13,6 @@ const app = dva({
 
 app.use(createLoading());
 
-app.model(require('./models/count'));
 app.model(require('./models/zhihu'));
 
 app.router(require('./router'));

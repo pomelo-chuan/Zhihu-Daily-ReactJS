@@ -30,18 +30,26 @@
   font-size: 12px;
   font-weight: bold;
   outline: none;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid white;
   transition: all 0.3s ease;
 }
 
 /*链接被选中时的样式*/
 .linkActive {
   color: black;
+  outline: none;
   border-bottom: 2px solid black;
   transition: all 0.3s ease;
+}
+
+.linkActive:active,
+.linkActive:focus
+{
+  outline: none;
 }
 
 .headContainer{
   padding: 0.5rem;
   border-bottom: 2px solid #FAFAFA;
 }
+
